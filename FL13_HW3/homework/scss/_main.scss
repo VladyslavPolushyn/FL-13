@@ -1,0 +1,269 @@
+@mixin btn($btn-bg) {
+	background-color: $btn-bg;
+	color: #fff;
+	font-family: $headerFont;
+	font-weight: 600;
+	width: 180px;
+	height: 60px;
+	padding: 0;
+	font-size: 22px;
+	outline: none;
+	border: none;
+}
+
+@mixin link($color, $header-font, $font-size) {
+	color: $color;
+	font-family: $header-font;
+	font-size: $font-size;
+}
+
+@mixin word-bg($word, $h, $w, $bottom, $left) {
+	&:before {
+		content: '';
+		background-color: map-get($bgColors, word);
+		position: absolute;
+		bottom: $bottom;
+		left: $left;
+		height: $h;
+		width: $w;
+	}
+
+	&:after {
+		content: $word;
+		position: absolute;
+		bottom: 0;
+		left: $left;
+	}
+}
+
+@mixin logo($color) {
+	height: 55px;
+
+	img {
+		float: left;
+		margin-right: 20px;
+		height: 100%;
+	}
+
+	p {
+		font-size: 29px;
+		font-weight: bold;
+		font-family: $mainFont;
+		color: $color;
+		text-align: center;
+		line-height: 1.25;
+		display: inline-block;
+
+		span {
+			display: block;
+			font-size: 13px;
+		}
+	}
+}
+
+body, p {
+	margin: 0;
+}
+
+body {
+	background-color: map-get($bgColors, body);
+}
+
+button {
+	@include btn(map-get($bgColors, button));
+}
+
+p[class*="_heading"] {
+	font-family: $headerFont;
+	font-weight: bold;
+	color: $textAccentColor;
+}
+
+p[class*="_text"] {
+	font-family: $mainFont;
+}
+
+.header-wrap, .footer-wrap {
+	width: 1520px;
+	margin: 0 auto;
+}
+
+.header {
+	box-sizing: border-box;
+	background-image: $headerBackground;
+	background-position: center;
+	background-size: cover;
+	padding: 25px 0 220px 0;
+	border-top-left-radius: 0 110%;
+	border-top-right-radius: 0 80%;
+	border-bottom-right-radius: 80% 80%;
+	border-bottom-left-radius: 0% 80%;
+	
+	.header-wrap {	
+		
+		.landing-logo {
+			@include logo($textAccentColor);
+		}
+
+		.header_heading {
+			font-size: 91px;
+			margin: 89px 0 74px 0;
+			max-width: 50%;
+			line-height: 1;
+			position: relative;
+			letter-spacing: -0.3px;
+			@include word-bg('awesome', 64px, 380px, 0, 0);
+		}
+
+		.header_text {
+			color: $textAccentColor;
+			margin-bottom: 75px;
+			white-space: pre-line;
+			font-size: 20px;
+			line-height: 1.5;
+			letter-spacing: 0.25px;
+
+			&:first-line {
+				line-height: 0;
+			}
+		}
+
+		.header_button {
+			margin-right: 185px;
+		}
+
+		.login {
+			@include link(#fff, $headerFont, 25px);
+		}
+	}
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	width: 1130px;
+	margin: 0 auto;
+	padding: 44px 0 260px 0;
+	text-align: center;
+
+	.section_text {
+		@extend p[class*="_heading"];
+		position: relative;
+		display: inline-block;
+		font-size: 52px;
+		margin: 0 auto;
+		font-weight: 600;
+		@include word-bg('adventure', 52px, 230px, 8px, 271px);
+		margin-bottom: 60px;
+	}
+
+	.section_card_wrap {
+		display: grid;
+		grid-template-row: repeat(3 1fr);
+		grid-gap: 35px;
+
+		.section_card {
+			display: flex;
+			box-sizing: border-box;
+			height: 345px;
+			padding: 25px;
+			background-color: map-get($bgColors, card);
+			border-radius: 7px;
+			
+			.section_card_heading {
+				color: #fff;
+				font-size: 30px;
+				font-weight: 600;
+			}
+
+			.section_card_text {
+				color: $cardTextColor;
+				font-size: 20px;
+				margin: 30px 0 20px 0;
+				text-align: justify;
+			}
+
+			.section_card_img {
+				border-radius: 7px;
+				height: 100%;
+				width: 100%;
+			}
+
+			.section_card_right_container {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding: 0 100px;
+
+				.section_link {
+					@include link($cardTextColor, $headerFont, 20px);
+					font-weight: 600;
+				}
+			}
+		}
+	}
+
+	.section_banner {
+		position: absolute;
+		bottom: -90px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-radius: 6px;
+		box-sizing: border-box;
+		width: 1200px;
+		height: 180px;
+		padding: 0 130px;
+		background: linear-gradient(to right, $bannerStartColor, $bannerEndColor);
+	}
+
+	.section_banner_text_wrap {
+		text-align: left;
+
+		.section_banner_heading {
+			position: relative;
+			font-size: 34px;
+			line-height: 1;
+			margin-bottom: 25px;
+			@include word-bg('start', 60px, 71px, -5px, 138px);
+		}
+
+		.section_banner_text {
+			color: $cardTextColor;
+			font-size: 18px;
+		}
+	}
+}
+
+.footer {
+	padding: 165px 0 70px 0;
+	background-color: map-get($bgColors, card);
+	color: $cardTextColor;
+	font-family: $mainFont;
+
+	.footer-wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.footer_logo {
+			@include logo($cardTextColor);
+		}
+
+		.footer_text {
+			white-space: pre-line;
+			width: 370px;
+			font-size: 16px;
+
+
+			&:first-line {
+				line-height: 0;
+			}
+		}
+
+		.footer-cr {
+			font-size: 18px;
+		}
+	}
+}
