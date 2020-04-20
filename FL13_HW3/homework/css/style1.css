@@ -122,7 +122,7 @@ p[class*="_text"] {
       left: 271px; }
   .section .section_card_wrap {
     display: grid;
-    grid-template-row: repeat(3 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-gap: 35px; }
     .section .section_card_wrap .section_card {
       display: flex;
