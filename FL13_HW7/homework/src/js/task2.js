@@ -49,10 +49,12 @@ if(!playGame) {
 
 		}
 
-		userNumber = +prompt('Chose a roulette pocket number from ' + `${minRange}` + ' to ' + `${maxRange}` + 
+		userNumber = prompt('Chose a roulette pocket number from ' + `${minRange}` + ' to ' + `${maxRange}` + 
 			'\nAttempts left: ' + `${attempts}` + 
 			'\nTotal prize: ' + `${totalPrize}` + '$' + 
 			'\nPossible prize on current attempt: ' + `${currentPrize}` + '$');
+
+		userNumber = parseInt(userNumber);
 
 		if(userNumber === currentNumber) {
 
