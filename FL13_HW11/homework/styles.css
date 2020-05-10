@@ -1,0 +1,69 @@
+#root {
+	/*поправить отступы и размеры*/
+	width: 400px;
+	margin: 50px auto;
+	padding: 25px 10px 25px 0;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+li > span {
+	display: flex;
+	align-items: center;
+}
+
+span {
+	display: block;
+}
+
+li > span:hover {
+	cursor: pointer;
+	background-color: #E3E3E3;
+}
+
+i.material-icons {
+	font-family: 'Material Icons';
+}
+
+.folder-icon {
+	color:#EDBC0B;
+}
+
+.file-icon {
+	color: #B0B0B0;
+}
+
+.menu {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 10px;
+	position: absolute;
+	background: #fff;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+	border-radius: 4px;
+	opacity: 0;
+	z-index: -1;
+}
+
+.show-menu {
+	opacity: 1;
+	z-index: 100;
+}
+
+.menu li:hover {
+	cursor: pointer;
+	background-color: #DDDDDD;
+}
+
+.empty-folder {
+	font-style: italic;
+}
+
+span[contenteditable = 'true']:hover {
+	cursor: text;
+}
