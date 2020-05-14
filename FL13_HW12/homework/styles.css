@@ -1,0 +1,48 @@
+.static-section, .dynamic-section {
+	padding: 20px;
+	border: solid 2px gray;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.book-item {
+	border: 2px solid gray;
+	border-radius: 3px;
+	padding: 5px;
+	margin: 10px auto;
+	text-align: center;
+	background-color: #101024;
+}
+
+.book-item a {
+	display: block;
+	padding: 5px;
+}
+
+.book-heading {
+	background-color: #E2E58A;
+}
+
+.edit-btn {
+	background-color: #78BE77;
+}
+
+.add-btn {
+	display: block;
+	text-align: center;
+}
+
+.edit-form {
+	display: flex;
+	flex-direction: column;
+}
+
+input, textarea, button {
+	box-sizing: border-box;
+	margin: 10px;
+	padding: 5px;
+}
+
+.book-img {
+	width: 30%;
+}
