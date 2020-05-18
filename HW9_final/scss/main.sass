@@ -1,0 +1,289 @@
+@import '_reset.sass'
+@import '_normalize.sass'
+
+@import '_vars.sass'
+@import '_fonts.sass'
+
+@import '_bootstrap_override.sass'
+
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables'
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins'
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding'
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/grid'
+
+// ===== MY STYLES START =====
+
+body
+	font-family: 'HindSiliguri'
+	font-weight: 400
+	font-size: 15px
+	color: $textColor
+
+h1, h2, h3, h4, h5, h6
+	font-family: 'HindSiliguri'
+	font-weight: 600
+
+h1
+	font-size: 28px
+
+h2
+	font-size: 24px
+
+h3
+	font-size: 20px
+	font-weight: 500
+
+h4
+	font-size: 17px
+	font-weight: 400
+
+h5
+	font-size: 15px
+	font-weight: 400
+
+a:link, a:hover, a:visited, a:active
+	text-decoration: none
+	color: $textColor
+
+section
+	padding-top: 80px
+
+.container
+	@include container-fixed(0)
+
+.main-header
+	z-index: 1000
+	margin-top: 30px
+	
+.main-header__container
+	display: flex
+	justify-content: space-between
+
+.main-header__logo
+	@include make-lg-column(2)
+	font-weight: 700
+
+.main-header__menu
+	@include make-lg-column(10)
+	text-align: right
+
+.main-header__link
+	position: relative
+	margin-left: 37px
+	box-sizing: content-box
+	&:hover, &.active
+		text-shadow: 0px 1px 0px $textColor
+		&::after
+			content: ''
+			position: absolute
+			left: 0
+			bottom: 2px
+			width: 100%
+			border: 1px solid $textColor
+	&:nth-child(1)
+		margin: 0
+
+.hero-section
+	margin-top: -54px
+	height: 600px
+	background-image: url('../img/homepage/bg.jpg')
+	background-position: center
+	background-size: cover
+	width: 100%
+	z-index: -1
+	padding-top: 134px
+
+.hero-section__container
+	display: flex
+	flex-direction: column
+
+.hero-section__heading
+	@include make-lg-column(5)
+	line-height: 37px
+	margin-bottom: 22px
+
+.hero-section__text
+	@include make-lg-column(7)
+	line-height: 26px
+	font-size: 17px
+	margin-bottom: 32px
+
+.hero-section__buttons
+	@include make-lg-column(3)
+
+.hero-section__explore-btn
+	margin-right: 19px
+
+.btn
+	border: 1px solid
+	letter-spacing: 0
+	box-sizing: border-box
+	font-size: 15px
+	line-height: 25px
+	font-weight: 400
+	border-radius: 5px
+	padding: 10px 26px
+	&.btn_primary
+		color: #fff
+		border-color: $btnPrimaryBg
+		background-color: $btnPrimaryBg
+	&.btn_secondary
+		color: $textColor
+		background-color: $btnSecondaryBg
+		border-color: $textColor
+	&:hover
+		color: #fff
+		background-color: $btnHoverBg
+
+.section-header
+	text-align: center
+	display: flex
+	flex-direction: column
+	align-items: center
+	margin-bottom: 60px
+
+.section-header__heading
+	line-height: 39px
+	padding-bottom: 10px
+	margin-bottom: 14px
+	border-bottom: 2px solid $textColor
+	position: relative
+	&:before
+		content: ''
+		position: absolute
+		height: 8px
+		bottom: 0
+		border: 1px solid $textColor
+	&:after
+		content: ''
+		position: absolute
+		height: 8px
+		bottom: 0
+		right: 0
+		border: 1px solid $textColor
+	span
+		&:before
+			content: ''
+			position: absolute
+			border: 1px solid $textColor
+			left: -2px
+			bottom: 6px
+			width: 2px
+		&:after
+			content: ''
+			position: absolute
+			border: 1px solid $textColor
+			bottom: 6px
+			width: 2px
+
+.section-header__description
+	@include make-lg-column(5)
+	font-size: 17px
+
+.squeres
+	@include make-lg-column(3)
+
+
+.squeres__item
+	position: relative
+	box-sizing: border-box
+	text-align: center
+	border-radius: 5px
+	height: 184px
+	margin-bottom: 20px
+	&:nth-child(odd)
+		.squeres__corner_top
+			position: absolute
+			width: 25px
+			height: 25px
+			border-top: 5px solid
+			border-right: 5px solid
+			border-color: #fff
+			border-top-right-radius: 50%
+			right: 28px
+			top: -5px
+		.squeres__corner_bottom
+			position: absolute
+			width: 25px
+			height: 25px
+			border-top: 5px solid
+			border-right: 5px solid
+			border-color: #fff
+			border-top-right-radius: 50%
+			right: -5px
+			top: 32px
+
+		&:before
+			content: ''
+			position: absolute
+			top: -1px
+			right: -1px
+			width: 34px
+			height: 38px
+			border-bottom-left-radius: 5px
+			background-color: #fff
+	&:nth-child(even)
+		.squeres__corner_top
+			position: absolute
+			width: 25px
+			height: 25px
+			border-top: 5px solid
+			border-left: 5px solid
+			border-color: #fff
+			border-top-left-radius: 50%
+			left: 28px
+			top: -5px
+		.squeres__corner_bottom
+			position: absolute
+			width: 25px
+			height: 25px
+			border-top: 5px solid
+			border-left: 5px solid
+			border-color: #fff
+			border-top-left-radius: 50%
+			left: -5px
+			top: 32px
+
+		&:before
+			content: ''
+			position: absolute
+			left: -1px
+			top: -1px
+			width: 34px
+			height: 38px
+			border-bottom-right-radius: 5px
+			background-color: #fff
+
+.squeres__img
+	margin-top: 45px
+	margin-bottom: 21px
+
+.squeres__heading
+	text-align: center
+
+.squeres__item_green
+	background: linear-gradient(to left, rgb(182,212,148), rgb(214,211,133))
+
+.squeres__item_blue
+	background: linear-gradient(to left, rgb(149,181,253), rgb(197,217,251))
+
+.squeres__item_pink
+	background: linear-gradient(to left, rgb(255,164,164), rgb(255,129,129))
+
+.about-section__video
+	position: relative
+	@include make-lg-column(9)
+
+.about-section__play-btn
+	position: absolute
+	width: 72px
+	height: 72px
+	top: calc(50% - 72px/2)
+	left: calc(50% - 72px/2)
+	background-image: url(../img/icons/atoms/icon/a-icon-play.svg)
+	&:hover
+		cursor: pointer
+
+//===== MY STYLES END ====
+
+// @import "_media.sass"; if need it
