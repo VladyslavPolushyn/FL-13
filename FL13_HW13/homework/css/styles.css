@@ -8,7 +8,11 @@ a:link, a:hover, a:active, a:visited {
 }
 
 header, section, footer {
+<<<<<<< HEAD
 	padding: 30px 0;
+=======
+	padding: 20px 0;
+>>>>>>> 387409edd947cd1faf1f8cdd3dfb07983c4e3879
 }
 
 .main-header__link {
@@ -56,6 +60,7 @@ header, section, footer {
 	color: #212529;
 }
 
+<<<<<<< HEAD
 .all-games__item {
 	margin-bottom: 40px;
 }
@@ -90,3 +95,10 @@ header, section, footer {
 .main-footer_copy {
 	margin: 40px 0 20px 0;
 }
+=======
+.all-games__img {
+	-webkit-box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.6);
+	box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.6);
+}
+>>>>>>> 387409edd947cd1faf1f8cdd3dfb07983c4e3879
