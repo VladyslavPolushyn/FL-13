@@ -35,7 +35,6 @@ function Vehicle(color, engine, model='unknown model') {
 					console.log('speed is too high, SLOW DOWN!');
 				}
 			}else {
-				// currentMaxSpeed = currentSpeed;
 				clearInterval(driving);
 			}
 		}
@@ -67,7 +66,6 @@ function Vehicle(color, engine, model='unknown model') {
 
 function Motorcycle() {
 	Vehicle.apply(this, arguments);
-
 	let maxSpeed = 90;
 	this.maxSpeed = maxSpeed;
 
@@ -75,6 +73,7 @@ function Motorcycle() {
 	let parentStop = this.stop;
 
 	this.drive = function() {
+		console.log(`Let's drive`);
 		parentDrive.call(this);
 	}
 
@@ -86,10 +85,21 @@ function Motorcycle() {
 
 function Car() {
 	Vehicle.apply(this, arguments);
-
 	let maxSpeed = 80;
 	this.maxSpeed = maxSpeed;
 
+	let parentDrive = this.drive;
+	let parentStop = this.stop;
+
+	this.drive = function() {
+		console.log(`Let's drive`);
+		parentDrive.call(this);
+	}
+
+	this.stop = function () {
+		parentStop.call(this);
+	}
+	
 }
 
 const yamaha = new Motorcycle('Blue', 'Moto2000', 'Yamaha');
