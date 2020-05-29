@@ -45,8 +45,92 @@ a:link, a:hover, a:visited, a:active
 	text-decoration: none
 	color: $textColor
 
+button:focus
+	outline: none
+
 section
 	padding-top: 80px
+
+video, audio
+	max-width: 100%
+
+// BURGER MENU
+
+
+#menu__toggle
+	opacity: 0
+
+#menu__toggle, .menu__btn
+	display: none
+
+.menu__btn
+	align-items: center
+	position: fixed
+	top: 20px
+	right: 20px
+	width: 26px
+	height: 26px
+	cursor: pointer
+	z-index: 100
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after
+	display: block
+	position: absolute
+	width: 100%
+	height: 2px
+	background-color: #616161
+.menu__btn > span::before
+	content: ''
+	top: -8px
+.menu__btn > span::after
+	content: ''
+	top: 8px
+
+
+#menu__toggle:checked ~ .menu__btn > span
+	transform: rotate(45deg)
+#menu__toggle:checked ~ .menu__btn > span::before
+	top: 0
+	transform: rotate(0)
+#menu__toggle:checked ~ .menu__btn > span::after
+	top: 0
+	transform: rotate(90deg)
+#menu__toggle:checked ~ .main-header__menu
+	visibility: visible
+	left: 0
+
+
+
+// END BURGER MENU
+
+.scroll
+	position: fixed
+	bottom: 20px
+	right: 30px
+	z-index: 99
+	background-color: rgba(0, 0, 0, 0.2)
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+	width: 40px
+	height: 40px
+	border-radius: 5px
+	&:hover
+		cursor: pointer
+
+.scroll__link
+	min-width: 100%
+	min-height: 100%
+	display: block
+	background: url('../img/icons/atoms/icon/a-icon-arrow.svg') no-repeat
+	background-position: center
+	transform: rotate(180deg)
+
+.bold-span
+	font-weight: 700
+
+.underline-span
+	text-decoration: underline
 
 .container
 	@include container-fixed(0)
@@ -56,14 +140,21 @@ section
 	margin-top: 30px
 	
 .main-header__container
+	position: relative
 	display: flex
 	justify-content: space-between
 
 .main-header__logo
+	@include make-xs-column(3)
+	@include make-sm-column(2)
+	@include make-md-column(2)
 	@include make-lg-column(2)
 	font-weight: 700
 
 .main-header__menu
+	@include make-xs-column(12)
+	@include make-sm-column(10)
+	@include make-md-column(10)
 	@include make-lg-column(10)
 	text-align: right
 
@@ -98,11 +189,15 @@ section
 	flex-direction: column
 
 .hero-section__heading
+	@include make-sm-column(9)
+	@include make-md-column(6)
 	@include make-lg-column(5)
 	line-height: 37px
 	margin-bottom: 22px
 
 .hero-section__text
+	@include make-sm-column(10)
+	@include make-md-column(8)
 	@include make-lg-column(7)
 	line-height: 26px
 	font-size: 17px
@@ -179,12 +274,19 @@ section
 .section-header__description
 	@include make-lg-column(5)
 	font-size: 17px
+	line-height: 26px
 
 .squeres
+	@include clearfix()
+	@include make-sm-column(12)
+	@include make-md-column(4)
 	@include make-lg-column(3)
 
 
 .squeres__item
+	@include make-sm-column(6)
+	@include make-md-column(12)
+	@include make-lg-column(12)
 	position: relative
 	box-sizing: border-box
 	text-align: center
@@ -212,7 +314,6 @@ section
 			border-top-right-radius: 50%
 			right: -5px
 			top: 32px
-
 		&:before
 			content: ''
 			position: absolute
@@ -243,7 +344,6 @@ section
 			border-top-left-radius: 50%
 			left: -5px
 			top: 32px
-
 		&:before
 			content: ''
 			position: absolute
@@ -253,6 +353,8 @@ section
 			height: 38px
 			border-bottom-right-radius: 5px
 			background-color: #fff
+	&:last-child
+		margin: 0
 
 .squeres__img
 	margin-top: 45px
@@ -271,19 +373,910 @@ section
 	background: linear-gradient(to left, rgb(255,164,164), rgb(255,129,129))
 
 .about-section__video
-	position: relative
+	@include make-md-column(8)
 	@include make-lg-column(9)
+	max-height: 592px
+	video
+		max-width: 100%
 
-.about-section__play-btn
+.video-play-btn
 	position: absolute
 	width: 72px
 	height: 72px
 	top: calc(50% - 72px/2)
 	left: calc(50% - 72px/2)
-	background-image: url(../img/icons/atoms/icon/a-icon-play.svg)
+	background-image: url('../img/icons/atoms/icon/a-icon-play.svg')
 	&:hover
 		cursor: pointer
 
+.latest-posts-section__posts
+	@include clearfix()
+
+.latest-posts-section__post
+	@include make-lg-column(4)
+
+.latest-posts-section__img
+	max-width: 100%
+	margin-bottom: 20px
+
+.latest-posts-section__title
+	margin-bottom: 10px
+
+.latest-posts-section__text
+	line-height: 24px
+	margin-bottom: 20px
+
+.post-data__time
+	margin: 0 14px
+	&:before
+		content: '\2022'
+		position: relative
+		left: -8px
+	&:after
+		content: '\2022'
+		position: relative
+		right: -8px
+
+.post-data__comment-img
+	margin-right: 4px
+
+.portfolio-section__container
+	display: flex
+	flex-direction: column
+
+.carousel
+	display: flex
+
+.carousel__item
+	@include make-xs-column(10)
+	@include make-sm-column(4)
+	@include make-md-column(4)
+	@include make-lg-column(4)
+	color: #fff
+	height: 246px
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	&:hover
+		cursor: pointer
+		filter: drop-shadow(0 5px 7px rgba(0,0,0,0.4))
+		.carousel-item__hover-menu
+			display: flex
+
+.carousel-item__heading
+	text-transform: uppercase
+	font-weight: 700
+	
+.carousel-item_first
+	background: url('../img/homepage/Block1/bg_img1.png') no-repeat center/cover content-box
+
+.carousel-item_second
+	background: url('../img/homepage/Block2/bg_img2.png') no-repeat center/cover content-box
+
+.carousel-item_third
+	background: url('../img/homepage/Block3/bg_img3.png') no-repeat center/cover content-box
+
+.carousel-item__hover-menu
+	display: none
+	justify-content: space-around
+	align-items: center
+	position: absolute
+	bottom: 0
+	right: 20px
+	width: 101px
+	height: 63px
+	border-radius: 5px
+	padding: 0 8px
+	background-color: rgba(0, 0, 0, 0.5)
+
+.portfolio-section__controls
+	margin: 38px 0
+	display: flex
+	justify-content: space-between
+	@include make-lg-column(4)
+	@include make-lg-column-offset(4)
+
+.portfolio-section__control, .slider-control
+	width: 45px
+	height: 45px
+	border: 1px solid $textColor
+	border-radius: 5px
+	&:hover
+		cursor: pointer
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+	&:before
+		content: ''
+		position: absolute
+		background: url('../img/icons/atoms/icon/a-icon-arrow.svg') no-repeat center
+		width: 45px
+		height: 45px
+
+.portfolio-section__prev-control, .slider-control_prev
+	&:before
+		transform: rotate(90deg)
+
+.portfolio-section__next-control, .slider-control_next
+	&:before
+		transform: rotate(-90deg)
+
+.portfolio-section__btn
+	max-width: 136px
+	padding: 10px 25px
+	margin: 0 auto
+
+.testimonials-section
+	@include clearfix()
+	margin-top: 60px
+	padding-bottom: 80px
+	background: url('../img/homepage/Group4/Bg_testimonial.png') no-repeat center/cover
+
+.testimonials-section__container
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+
+.testimonials-section__header
+	margin-bottom: 38px
+
+.slider
+	position: relative
+	display: flex
+	filter: drop-shadow(0 0 7px rgba(0,0,0,0.4))
+	// margin-bottom: 80px
+	@include make-lg-column(6)
+
+.slider__quote, .slider__img
+	@include make-lg-column(6)
+	padding: 0
+
+.slider__quote
+	border-radius: 5px 0 0 5px
+	color: #fff
+	background-color: #494A4D
+	padding: 53px 40px 21px 48px
+
+.quote__title
+	position: relative
+	margin-bottom: 37px
+	line-height: 26px
+	font-weight: 600
+	&:before
+		content: '“'
+		position: absolute
+		left: -16px
+		top: -22px
+		font-size: 28px
+		font-weight: 700
+		line-height: 45px
+
+.quote__author
+	line-height: 25px
+
+.quote__job
+	font-weight: 300
+
+.slider__img
+	border-radius: 0 5px 5px 0
+	background: url('../img/homepage/Group4/Group 5/User_img.png') no-repeat center/cover
+
+.slider-control
+	background-color: #fff
+	position: absolute
+	top: calc(50% - 45px/2)
+
+.slider-control_prev
+	left: -56px
+
+.slider-control_next
+	right: -56px
+
+.social-icons
+	margin: 22px 0
+	@include make-lg-column(12)
+
+.social-icons__icon
+	margin-right: 22px	
+
+.contact-info
+	position: relative
+	padding: 105px 0 30px 0
+	@include clearfix()
+	background-color: $contactBg
+
+.contact-info__title
+	margin-bottom: 45px
+	
+.steps-list
+	list-style: decimal
+	padding-left: 38px
+
+.contact-info__steps
+	@include make-lg-column(4)
+
+.contact-info__form-block
+	@include make-lg-column(8)
+
+.contact-step
+	position: relative
+	padding-bottom: 35px
+	&:not(:last-child)
+		&:before
+			content: ''
+			position: absolute
+			top: 17px
+			left: -30px
+			height: calc(100% - 17px)
+			width: 1px
+			background-color: $inputBorderDef
+
+.contact-step__title
+	position: relative
+	font-weight: 700
+	margin-bottom: 5px
+	&:before
+		content: ''
+		width: 17px
+		height: 17px
+		left: -38px
+		top: 1px
+		position: absolute
+		border: 3px solid $textColor
+		border-radius: 50%
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15)
+	&:after
+		content: '\2022'
+		position: absolute
+		left: -33px
+		top: 1px
+
+.contact-step__text
+	line-height: 26px
+
+.form-block
+	@include make-lg-column(8)
+	margin-top: calc(-105px - 65px)
+
+.form-block__wrapper
+	@include clearfix()
+	box-shadow: 0 4px 22px rgba(0,0,0,0.4)
+	border-radius: 5px
+	background-color: #fff
+
+.form-block__header
+	@include clearfix()
+	height: 65px
+	border-radius: 5px 5px 0 0
+	background-color: #F8F8F8
+	@include make-lg-column(12)
+	padding-top: 12px
+	padding-bottom: 12px
+
+.form-block__header-container
+	@include make-lg-column(11)
+	padding: 0
+
+.form-block__img
+	float: left
+	margin-top: -5px
+	margin-right: 14px
+
+.form-block__text
+	font-size: 17px
+	line-height: 21px
+
+.form-block__form-and-map
+	@include clearfix()
+	clear: both
+	position: relative
+
+.form-block__form-wrapper, .form-block__map
+	@include make-xs-column(12)
+	@include make-sm-column(6)
+	@include make-md-column(6)
+	@include make-lg-column(6)
+
+.form-block__form-wrapper
+	position: relative
+	padding: 30px
+	padding-left: 30px
+	padding-bottom: 63px
+
+input
+	position: relative
+	width: 320px
+	padding: 10px
+	border-radius: 5px
+	outline: none
+	border: 1px solid $inputBorderDef
+	&:focus
+		border: 1px solid $textColor
+	&.invalid
+		border-color: $invalidInput
+
+input[type="search"]
+	box-sizing: border-box
+
+.section-search__input:focus ~ #authors_list
+	display: block
+	position: absolute
+	z-index: 999
+	&:before
+		content: ''
+		position: absolute
+		width: calc(100% - 20px)
+		top: 0
+		height: 1px
+		background-color: #E6E6E6
+
+.section-search__input:focus
+	border-bottom: 1px solid transparent
+	border-radius: 5px 5px 0 0
+
+#authors_list
+	display: none
+	background-color: #fff
+	border-radius: 0 0 5px 5px
+	min-width: 100%
+	border: 1px solid $textColor
+	border-top: none
+	padding: 10px
+
+.authors-list__img
+	width: 37px
+	height: 37px
+	margin-right: 10px
+
+.authors-list__item
+	box-sizing: border-box
+	display: flex
+	align-items: center
+	padding: 5px
+	&:hover
+		background-color: #F8F8F8
+
+.author-list__link
+	flex-basis: 100%
+	display: block
+	font-size: 15px
+	line-height: 18px
+	padding: 10px 0
+	&:hover
+		background-color: #F8F8F8
+
+
+label
+	position: relative
+
+.input-block
+	position: relative
+
+.show-pass-img
+	margin-right: 5px
+
+.show-pass-btn
+	border: none
+	outline: none
+	background: none
+	font-size: 14px
+	position: absolute
+	right: -8px
+	top: -28px
+
+.form-block__input-title
+	display: block
+	margin-bottom: 3px
+	font-size: 17px
+	line-height: 28px
+
+.form-block__input
+	margin-bottom: 33px
+
+.form-btn
+	width: 144px
+
+.form-block__contact
+	@include make-sm-column(6)
+	@include make-md-column(6)
+	@include make-lg-column(12)
+	padding: 0
+	margin-top: 5px
+	line-height: 28px
+
+.form-block__map
+	background: url('../img/homepage/Contact_form/map.png') no-repeat center/cover
+	position: absolute
+	left: 50%
+	right: 0
+	top: 0
+	bottom: 0
+	height: 100%
+
+.main-footer
+	background-color: #F8F8F8
+	border-top: 1px solid $inputBorderDef
+
+.main-footer__container
+	display: flex
+	justify-content: space-between
+
+.main-footer__icons
+	text-align: left
+	@include make-lg-column(5)
+
+.main-footer__logo, .main-footer__copy
+	display: flex
+	align-items: center
+
+.main-footer__logo
+	justify-content: center
+
+.main-footer__logo
+	@include make-lg-column(2)
+
+.main-footer__title
+	text-align: center
+
+.main-footer__copy
+	text-align: right
+	@include make-lg-column(5)
+	justify-content: flex-end
+
+.main-footer__title
+	font-weight: 700
+
+
+
+
+// ============BLOG STYLES START=============
+.blog-section__container
+	display: flex
+	flex-direction: column
+
+
+.main-header_blog-mb
+	margin-bottom: 71px
+
+.section-header_blog-mb
+	margin-top: 71px
+	margin-bottom: 40px
+
+.section-search
+	padding-top: 0
+
+.section-search__container
+	display: flex
+	justify-content: flex-end
+
+.section-search__input-wrapper
+	margin: 0 20px
+	position: relative
+	&:after
+		content: ''
+		position: absolute
+		background: url('../img/icons/atoms/icon/a-icon-search-1.svg') no-repeat center/cover
+		width: 20px
+		height: 20px
+		right: 15px
+		top: 13px
+
+.blog-section
+	padding-top: 30px
+
+.blog-post
+	margin-bottom: 50px
+	background-clip: content-box
+	background-color: $blogInfoBg
+	margin-left: 20px
+	margin-right: 20px
+	border-radius: 5px
+	.video-play-btn
+		left: calc(50% - 72px/2 - 10px) //changed padding-left
+	&.blog-post_no-img
+		margin-bottom: 58px
+
+.blog-post__img
+	@include make-xs-column(12)
+	@include make-sm-column(12)
+	@include make-md-column(5)
+	@include make-lg-column(6)
+
+.blog-post__info
+	@include make-xs-column(12)
+	@include make-sm-column(12)
+	@include make-md-column(7)
+	@include make-lg-column(6)
+	&.blog-post__info_no-img
+		@include make-xs-column(12)
+		@include make-sm-column(12)
+		@include make-md-column(12)
+		@include make-lg-column(12)
+
+
+.blog-post__info_no-img
+		padding-bottom: 40px
+		margin-left: 7px
+		.blog-post__text
+			@include make-lg-column(11)
+			padding: 0
+
+.blog-post_text
+	.blog-post__info
+		@include make-lg-column(12)
+
+.blog-post__audio
+	margin-top: 7px
+	margin-bottom: 2px
+	max-width: 214px
+	max-height: 37px
+
+.blog-post__img
+	max-height: 379px
+	padding-left: 0
+
+.blog-post__info
+	position: relative
+	padding-top: 27px
+	padding-right: 0
+	&:after
+		content: ''
+		position: absolute
+		width: 84px
+		height: 76px
+		box-sizing: border-box
+		border: 3px solid #fff
+		border-radius: 10px
+		top: -3px
+		right: -3px
+	&.blog-post__info_video:after
+		background: url('../img/icons/atoms/icon/a-icon-playmini.svg') no-repeat center
+	&.blog-post__info_audio:after
+		background: url('../img/icons/atoms/icon/a-icon-melody.svg') no-repeat center
+	&.blog-post__info_img:after
+		background: url('../img/icons/atoms/icon/a-icon-picture.svg') no-repeat center
+	&.blog-post__info_text
+		@include make-lg-column(12)
+		&:after
+			right: 4px
+			background: url('../img/icons/atoms/icon/a-icon-text.svg') no-repeat center
+
+.blog-post__author-img
+	float: left
+	margin-right: 12px
+
+.blog-post__author-name
+	font-weight: 600
+	margin: 3px 0
+
+.post-data__comment
+	margin-right: 7px
+
+.blog-post__title
+	clear: both
+	margin-top: 40px
+	margin-bottom: 15px
+
+.blog-post__text
+	font-size: 17px
+	line-height: 26px
+	@include make-lg-column(10)
+	padding: 0
+	
+.btn_clear
+	float: left
+	margin-top: 30px
+
+.btn_blog-read-more
+	max-width: 121px
+	padding: 10px 25px
+	margin: 0 auto
+	margin-bottom: 80px
+// ============BLOG STYLES END=============
+
+
+
+// ================POST STYLES START ================
+.post
+	padding-top: 20px
+
+.post-heading
+	padding-top: 0
+
+.post-heading__title
+	@include make-lg-column(7)
+	margin: 0
+	margin-top: 71px
+	line-height: 37px
+
+.post-info
+	padding-top: 25px
+
+.post-info__wrapper
+	@include make-lg-column(12)
+
+.post__wrapper
+	@include make-lg-column(7)
+
+.sidebar
+	@include make-lg-column(5)
+
+.post__player-block
+	margin: 15px 0 7px 0
+
+.post__text
+	font-size: 17px
+	line-height: 26px
+	margin-bottom: 20px
+
+.post__heading
+	margin: 38px 0 12px 0
+	clear: both
+
+.post__quote
+	@include make-lg-column(10)
+	border-left: 5px solid #E6E6E6
+	padding: 8px 8px 8px 26px
+	margin-bottom: 38px
+
+.post__text_quote
+	margin: 0
+	font-weight: 300
+
+.post__text_link
+	position: relative
+	font-weight: 700
+	&:hover
+		&::after
+			content: ''
+			position: absolute
+			left: 0
+			bottom: 2px
+			width: 100%
+			border: 1px solid $textColor
+
+.post__footer
+	@include clearfix()
+	margin-top: 50px
+	padding-bottom: 9px
+	border-bottom: 1px solid $inputBorderDef
+
+.post__likes
+	@include make-xs-column(6)
+	@include make-sm-column(6)
+	@include make-md-column(6)
+	@include make-lg-column(4)
+	padding: 0
+
+.post__likes-img
+	display: inline-block
+	margin-right: 6px
+	width: 24px
+	height: 24px
+	background: url('../img/icons/atoms/icon/a-icon-like.svg') no-repeat, center
+	&:hover
+		cursor: pointer
+		background: url('../img/icons/atoms/icon/a-icon-like-hover.svg') no-repeat, center
+	&:active
+		background: url('../img/icons/atoms/icon/a-icon-like-active.svg') no-repeat, center
+
+.post__icons
+	@include make-xs-column(6)
+	@include make-sm-column(6)
+	@include make-md-column(6)
+	@include make-lg-column(8)
+	text-align: right
+	padding: 0
+	margin: 0
+	.social-icons__icon
+		margin-right: 27px
+		&:last-child
+			margin-right: 0
+
+.post__reviews
+	position: relative
+	margin-bottom: 100px
+	&:before
+		content: ''
+		position: absolute
+		left: 39px
+		top: -30px
+		z-index: -1
+		min-height: calc(100% + 60px)
+		width: 2px
+		border: 1px solid $inputBorderDef
+
+.post__review
+	display: flex
+	justify-content: space-between
+	margin-bottom: 70px
+	&:first-child
+		&:before
+			content: ''
+			position: absolute
+			width: 16px
+			height: 16px
+			border: 2px solid $inputBorderDef
+			border-radius: 50%
+			top: calc(-30px - 16px)
+			left: calc(40px - 16px/2)
+	&:last-child
+		&:after
+			content: ''
+			position: absolute
+			width: 16px
+			height: 16px
+			border: 2px solid $inputBorderDef
+			border-radius: 50%
+			bottom: calc(-30px - 16px)
+			left: calc(40px - 16px/2)
+
+.post__reviews-heading
+	margin-top: 35px
+	margin-bottom: 68px
+
+.post__review-info
+	padding: 13px 19px
+	background-color: #FCF6F6
+	border-radius: 5px
+	margin-left: 16px
+	margin-right: 15px
+
+.post__review-header
+	display: flex
+	justify-content: space-between
+	margin-bottom: 11px
+
+.post__review-author-img
+	width: 80px
+	height: 80px
+
+.post__review-author
+	font-weight: 500
+	display: inline-block
+	margin-right: 7px
+
+.post__review-text
+	line-height: 25px
+	font-size: 15px
+
+.post__review-time
+	color: #818181
+	font-weight: 300
+	margin-left: 6px
+
+.post__link-block
+	text-align: right
+	margin-top: 13px
+
+.post__link
+	display: inline-block
+	line-height: 14px
+	font-weight: 500
+	border-bottom: 1px solid $textColor
+
+.more-comments__block
+	clear: both
+	@include make-lg-column-offset(5)
+
+.btn_more-comments
+	margin-left: 17px
+
+.main-footer_post
+	margin-top: 80px
+
+.sidebar__section
+	padding: 30px
+	margin-bottom: 70px
+	border-radius: 5px
+	background-color: $blogInfoBg
+
+.sidebar__header
+	border-bottom: 1px solid #E6E6E6
+	padding-bottom: 7px
+
+.sidebar__post
+	display: flex
+	padding-top: 30px
+
+.sidebar__post-img-block
+	margin-right: 15px
+
+.sidebar__post-info
+	display: flex
+	flex-direction: column
+	justify-content: center
+
+.sidebar__post-title
+	font-weight: 500
+	line-height: 23px
+	margin-bottom: 15px
+
+.post-data_sidebar
+	margin-top: 5px
+	color: #818181
+
+.post-data__comment_sidebar
+	margin-right: 0
+
+.sidebar__btn
+	text-align: right
+	margin-top: 30px
+
+.accordion
+	margin-top: 32px
+
+.tab
+	border-bottom: 1px solid #E6E6E6
+	padding-left: 6px
+	padding-bottom: 7px
+	margin-bottom: 14px
+	&:last-child
+		margin-bottom: 0
+		
+.tab input, .tab__content
+	display: none
+
+.tab-title
+	font-size: 17px
+	line-height: 28px
+	display: block
+	position: relative
+	&:hover
+		cursor: pointer
+		font-weight: 500
+	&:after
+		content: ''
+		width: 18px
+		height: 11px
+		top: 6px
+		right: 0
+		float: right
+		position: absolute
+		background: url('../img/icons/atoms/icon/a-icon-arrow.svg') no-repeat center	
+
+.tab__content
+	padding: 14px 0 0 0
+
+.tab :checked + .tab-title h4::after
+	content: ''
+	width: 18px
+	height: 11px
+	top: 0
+	right: 0
+	float: right
+	position: absolute
+	background: url('../img/icons/atoms/icon/a-icon-arrow.svg') no-repeat center
+	transform: rotate(180deg)
+
+.tab :checked ~ .tab__content
+	display: block	
+
+.tab__list-item
+	margin-bottom: 10px
+	&:last-child
+		margin-bottom: 0
+
+.tab__link
+	display: block
+	&:hover
+		font-weight: 500
+
+.tags
+	margin-top: 30px
+
+.btn_tag
+	line-height: 25px
+	padding: 4px 15px
+	margin-right: 9px
+	margin-bottom: 13px
+
+
+
+
+
+// ================POST STYLES END ================
+
 //===== MY STYLES END ====
 
-// @import "_media.sass"; if need it
+@import '_media.sass'

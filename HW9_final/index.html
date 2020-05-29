@@ -7,14 +7,24 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
+    
+    <div class="scroll">
+      <a href="#top" class="scroll__link"></a>
+    </div>
 
-    <header class="main-header">
+    <header class="main-header" id="top">
       <div class="container main-header__container">
         <h4 class="main-header__logo">BlogWorld</h4>
+
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+
         <nav class="main-header__menu">
           <a href="#home" class="main-header__link active">Home</a>
           <a href="#portfolio" class="main-header__link">Portfolio</a>
-          <a href="#blog" class="main-header__link">Blog</a>
+          <a href="blog.html" class="main-header__link">Blog</a>
           <a href="#pages" class="main-header__link">Pages</a>
           <a href="#about" class="main-header__link">About</a>
           <a href="#contact" class="main-header__link">Contact</a>
@@ -33,20 +43,18 @@
           BlogWorld taps into the brains of the world’s most insightful writers, thinkers, and storytellers to bring you the smartest takes on topics that matter. So whatever your interest, you can always find fresh thinking and unique perspectives.
         </p>
         <div class="hero-section__buttons">
-          <a href="#" class="btn hero-section__explore-btn btn_secondary">Explore</a>
-          <a href="#" class="btn hero-section__learn-more-btn btn_primary">Learn more</a>
+          <a href="#" class="btn hero-section__explore-btn btn_primary">Explore</a>
+          <a href="#" class="btn hero-section__learn-more-btn btn_secondary">Learn more</a>
         </div>
       </div>
     </section>
 
     <section class="about-section" id="about">
       <div class="container">
-        
         <header class="section-header">
           <h2 class="section-header__heading"><span>About us</span></h2>
           <p class="section-header__description">This is who we are - or at least who we strive to be…</p>
         </header>
-
         <div class="squeres">
           <div class="squeres__item squeres__item_green">
             <div class="squeres__corner_top"></div>
@@ -67,62 +75,207 @@
             <h4 class="squeres__heading">Accurate</h4>
           </div>
         </div>
-
         <div class="about-section__video">
           <video poster="img/homepage/about_picture.png">
             <source src="#">
           </video>
-          <div class="about-section__play-btn"></div>
+          <div class="video-play-btn"></div>
         </div>
-
       </div>
     </section>
 
-    <section class="latest-posts-section">
-      <div class="container">
-        
+    <section class="latest-posts-section" id="pages">
+      <div class="container">  
         <header class="section-header">
           <h2 class="section-header__heading"><span>Latest posts</span></h2>
           <p class="section-header__description">Information is a source of learning. But unless it is organized, processed and available to the right people</p>
         </header>
-
+        <div class="latest-posts-section__posts">
+          <div class="latest-posts-section__post">
+            <img src="img/homepage/Post/Img_post1.png" alt="post img" class="latest-posts-section__img">
+            <h3 class="latest-posts-section__title"><a href="#">In the Future We Will All Live in Star Wars</a></h3>
+            <p class="latest-posts-section__text">The thing you’re doing now, reading prose on a screen, is going out of fashion. The defining narrative of our online moment concerns the decline of text, and the exploding reach and power of audio and video…</p>
+            <div class="post-data">
+              <time datetime="2019-10-20">20 oct, 2019</time>
+              <span class="post-data__time">10 min read</span>
+              <span class="post-data__comment">
+                <img src="img/icons/atoms/icon/a-icon-comment.svg" alt="comment icon" class="post-data__comment-img">11
+              </span>
+            </div>
+          </div>
+          <div class="latest-posts-section__post">
+            <img src="img/homepage/Post1/Img_post2.png" alt="post img" class="latest-posts-section__img">
+            <h3 class="latest-posts-section__title"><a href="#">Rubik’s Cube? No, Robotics and AI are…</a></h3>
+            <p class="latest-posts-section__text">In other words, I will try to de-hype the crowd about the recent development in robotics. Concretely, OpenAI has claimed some pretty amazing results with learning to solve the Rubik’s cube with a robotic hand…</p>
+            <div class="post-data">
+              <time datetime="2019-10-11">11 oct, 2019</time>
+              <span class="post-data__time">7 min read</span>
+              <span class="post-data__comment">
+                <img src="img/icons/atoms/icon/a-icon-comment.svg" alt="comment icon" class="post-data__comment-img">19
+              </span>
+            </div>
+          </div>
+          <div class="latest-posts-section__post">
+            <img src="img/homepage/Post2/Img_post3.png" alt="post img" class="latest-posts-section__img">
+            <h3 class="latest-posts-section__title"><a href="#">How the Internet of Things will Transfo…</a></h3>
+            <p class="latest-posts-section__text">The Internet of Things (IoT) promises to be the most important technological development for consumers since the advent of the smartphone. Experts believe that this collection of internet-connected technolog…</p>
+            <div class="post-data">
+              <time datetime="2019-09-28">28 sep, 2019</time>
+              <span class="post-data__time">16 min read</span>
+              <span class="post-data__comment">
+                <img src="img/icons/atoms/icon/a-icon-comment.svg" alt="comment icon" class="post-data__comment-img">41
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="portfolio-section" id="portfolio">
-      <div class="container">
-        
+      <div class="container portfolio-section__container">       
         <header class="section-header">
           <h2 class="section-header__heading"><span>Latest portfolio</span></h2>
-          <p class="section-header__description">Information is a source of learning. But unless it is organized, processed and available to the right people</p>
-        </header>
-
+          <p class="section-header__description">Put there articles successfully special warrant submit agree what along then</p>
+        </header>       
+        <div class="portfolio-section__carousel carousel">
+          <div class="carousel__item carousel-item carousel-item_first">
+            <h3 class="carousel-item__heading">Art Ocean</h3>
+            <p class="carousel-item__text">Photography, art, nature</p>
+            <div class="carousel-item__hover-menu">
+              <img src="img/icons/atoms/icon/a-icon-attach.svg" alt="icon">
+              <img src="img/icons/atoms/icon/a-icon-search.svg" alt="icon">
+            </div>
+          </div>
+          <div class="carousel__item carousel-item carousel-item_second">
+            <h3 class="carousel-item__heading">City guide</h3>
+            <p class="carousel-item__text">Photography, city, way</p>
+            <div class="carousel-item__hover-menu">
+              <img src="img/icons/atoms/icon/a-icon-attach.svg" alt="icon">
+              <img src="img/icons/atoms/icon/a-icon-search.svg" alt="icon">
+            </div>
+          </div>
+          <div class="carousel__item carousel-item carousel-item_third">
+            <h3 class="carousel-item__heading">Mountains</h3>
+            <p class="carousel-item__text">Art, hiking</p>
+            <div class="carousel-item__hover-menu">
+              <img src="img/icons/atoms/icon/a-icon-attach.svg" alt="icon">
+              <img src="img/icons/atoms/icon/a-icon-search.svg" alt="icon">
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-section__controls">
+          <div class="portfolio-section__control portfolio-section__prev-control"></div>
+          <div class="portfolio-section__control portfolio-section__next-control"></div>
+        </div>
+        <button class="portfolio-section__btn btn btn_secondary">See all works</button>       
       </div>
     </section>
 
     <section class="testimonials-section">
-      <div class="container">
-        
-        <header class="section-header">
+      <div class="container testimonials-section__container">       
+        <header class="section-header testimonials-section__header">
           <h2 class="section-header__heading"><span>Testimonials</span></h2>
         </header>
-
+        <div class="testimonials-section__slider slider">
+          <div class="slider-control slider-control_prev"></div>
+          <div class="slider__quote">
+            <blockquote class="quote">
+              <h4 class="quote__title">
+                We move at a fast pace. I’m always working on something. I am excited about it!
+              </h4>
+              <footer>
+                <p class="quote__author">Martin Oda</p>
+                <p class="quote__author quote__job">Product desgner</p>
+              </footer>
+            </blockquote>
+          </div>
+          <div class="slider__img"></div>    
+          <div class="slider-control slider-control_next"></div>
+        </div>
       </div>
     </section>
 
     <section class="contact-section" id="contact">
       <div class="container">
-        
         <header class="section-header">
           <h2 class="section-header__heading"><span>Contact us</span></h2>
           <p class="section-header__description">Put there articles successfully special warrant submit agree what along then</p>
         </header>
-
+        <div class="social-icons">
+          <a href="#" class="social-icons__icon"><img src="img/icons/atoms/icon/a-icon-facebook.svg" alt="social icon"></a>
+          <a href="#" class="social-icons__icon"><img src="img/icons/atoms/icon/a-icon-instagram.svg" alt="social icon"></a>
+          <a href="#" class="social-icons__icon"><img src="img/icons/atoms/icon/a-icon-dribbble.svg" alt="social icon"></a>
+        </div>
       </div>
+        <div class="contact-info">
+          <div class="container">
+            <div class="contact-info__steps">
+              <h2 class="contact-info__title">What will be next step?</h2>
+              <ol class="steps-list">
+                <li class="contact-step">
+                  <h5 class="contact-step__title">We’ll prepare a proposal</h5>
+                  <p class="contact-step__text">Required scope, timeline and apr. price will be included if you provide us with detail information about a project.</p>
+                </li>
+                <li class="contact-step">
+                  <h5 class="contact-step__title">Together we discuss it</h5>
+                  <p class="contact-step__text">Let’s get acquainted and discuss all the possible variant and options. Google Hangouts or Skype usually wirks great.</p>
+                </li>
+                <li class="contact-step">
+                  <h5 class="contact-step__title">Let’s start building</h5>
+                  <p class="contact-step__text">When the contract is signed and all goals are set we can start the first sprint.</p>
+                </li>
+              </ol>          
+            </div>
+            <div class="form-block">
+              <div class="form-block__wrapper">
+                <div class="form-block__header">
+                  <div class="form-block__header-container">
+                    <p class="form-block__text">
+                      <img src="img/icons/atoms/icon/a-icon-mail.svg" alt="icon" class="form-block__img">
+                      Write us a few words about your project and we will prepare proposal for you  within 24 hours
+                    </p>
+                  </div>
+                </div>
+                <div class="form-block__form-and-map">
+                  <div class="form-block__form-wrapper">
+                    <form action="#" class="form-block__form">
+                      <label for="name" class="form-block__input-title">Your name</label>
+                      <p class="input-block"><input type="text" id="name" class="form-block__input" required></p>
+                      <label for="email" class="form-block__input-title">Email</label>
+                      <p class="input-block"><input type="email" id="email" class="form-block__input" required></p>
+                      <label for="pass" class="form-block__input-title">Password</label>
+                      <p class="input-block input-block_pass"><input type="password" id="pass" class="form-block__input" required>
+                        <button class="show-pass-btn">
+                          <img src="img/icons/atoms/icon/a-icon-showpass.svg" alt="icon" class="show-pass-img">
+                          <span class="show-pass-btn__text">show</span>
+                        </button>
+                      </p>
+                      <p class="input-block"><input type="submit" id="contact_submit" value="Send message" class="form-btn btn btn_primary form-block__input"></p>
+                    </form>
+                    <h4 class="form-block__contact">If you need to have a DNA first, just contact us at <span class="bold-span underline-span">email@gmail.com</span></h4>
+                  </div>
+                  <div class="form-block__map"></div>
+                </div>
+              </div>    
+            </div>
+          </div>
+        </div>
     </section>
 
     <footer class="main-footer">
-      <div class="container"></div>
+      <div class="container main-footer__container">
+        <div class="main-footer__icons social-icons">
+          <a href="#" class="social-icons__icon"><img src="img/icons/atoms/icon/a-icon-facebook.svg" alt="social icon"></a>
+          <a href="#" class="social-icons__icon"><img src="img/icons/atoms/icon/a-icon-instagram.svg" alt="social icon"></a>
+          <a href="#" class="social-icons__icon"><img src="img/icons/atoms/icon/a-icon-dribbble.svg" alt="social icon"></a>
+        </div>
+        <div class="main-footer__logo">
+          <h4 class="main-footer__title">BlogWorld</h4>
+        </div>
+        <div class="main-footer__copy">
+          <p class="main-footer__copy-text">&copy;2019 All Rights Reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="js/main.js"></script>

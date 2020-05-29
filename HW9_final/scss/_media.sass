@@ -1,0 +1,168 @@
+@media only screen and (min-width : 1200px)
+
+
+
+
+@media only screen and (min-width : 992px) and (max-width : 1199px)
+
+	.latest-posts-section__post
+		text-align: center
+
+	.form-block
+		margin-top: 0
+
+	.blog-post__info
+		padding-bottom: 20px
+		padding-right: 20px
+
+	.blog-post__img
+		img
+			max-width: 100%
+
+	.more-comments__block
+		margin-bottom: 30px
+
+@media only screen and (min-width : 768px) and (max-width : 991px)
+
+	.squeres
+		float: none
+		display: flex
+		flex-direction: column
+		align-items: center
+
+	.squeres__item:last-child
+		margin-bottom: 20px
+
+	.latest-posts-section__post
+		text-align: center
+
+	.slider-control_prev
+		left: -10px
+		z-index: 1
+
+	.slider-control_next
+		right: -10px
+		z-index: 1
+
+	.form-block
+		margin-top: 0
+
+	.blog-post__img
+		display: flex
+		justify-content: center
+		padding-right: 0
+		margin-bottom: 20px	
+
+	.blog-post__info
+		padding-bottom: 20px
+		padding-right: 20px
+
+	.blog-post
+		.video-play-btn
+				left: calc(50% - 72px/2) //changed padding-left
+
+	.blog-post__img
+		img
+			max-width: 100%
+
+	.more-comments__block
+		margin-bottom: 30px
+
+@media only screen and (max-width : 767px)
+
+	.main-header__container
+		justify-content: flex-start
+
+	.menu__btn, #menu__toggle
+		display: flex
+
+	.main-header__menu
+		z-index: 99
+		background-color: #fff
+		padding: 30px 20px
+		text-align: left
+		position: fixed
+		visibility: hidden
+		top: 0
+		// left: -100%
+		display: flex
+		flex-direction: column
+
+	.main-header__link
+		display: inline
+		margin-left: 0
+
+	.latest-posts-section__post
+		text-align: center
+
+	.carousel
+		flex-direction: column
+
+	.carousel-item
+		margin: 0 auto 20px auto
+
+	.squeres__item:last-child
+		margin-bottom: 20px
+
+	.slider-control_prev
+		left: 10px
+		z-index: 1
+
+	.slider-control_next
+		right: 10px
+		z-index: 1
+
+	.slider__quote
+		@include make-xs-column(10)
+		margin: 0 auto
+
+	.form-block
+		margin-top: 0
+
+	.form-block__map
+		position: relative
+		top: 0
+		left: 0
+		height: 400px
+		width: 100%
+
+	input
+		max-width: 220px
+
+	.form-block__header
+		height: 100px
+
+	.blog-post__img
+		display: flex
+		justify-content: center
+		padding-right: 0
+		margin-bottom: 20px	
+
+	.blog-post__info
+		padding-bottom: 20px
+		padding-right: 20px
+
+	.blog-post
+		.video-play-btn
+			left: calc(50% - 72px/2) //changed padding-left
+
+	.blog-post__info
+		.post-data
+			clear: both
+
+	.blog-post__img img, .post__img img
+		max-width: 100%
+
+	.more-comments__block
+		margin-bottom: 30px
+
+	.post__review-header, .sidebar__post, .main-footer__container
+		flex-direction: column
+
+	.main-footer__container
+		justify-content: center
+		align-items: center
+
+	.social-icons__icon
+		&:last-child
+			margin-right: 0
